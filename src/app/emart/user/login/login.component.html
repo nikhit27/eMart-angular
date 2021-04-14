@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-5">
+            <div class="small text-center text-danger">{{ errorMessage }}</div>
+            <div class="card card-align">
+                <div class="card-header">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    Sign in as :
+                    <div class="form-check-inline">
+                        <label for="buyer" class="form-check-label">
+                            <input 
+                                type="radio" 
+                                class="form-check-input" 
+                                id="buyer" 
+                                [(ngModel)]='role' 
+                                value='buyer'
+                                name="radioSign"/>
+                            Buyer
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label for="seller" class="form-check-label">
+                            <input 
+                                type="radio" 
+                                class="form-check-input" 
+                                id="seller" 
+                                [(ngModel)]='role' 
+                                value='seller'
+                                name="radioSign"/>
+                            Seller
+                        </label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" placeholder="Username" />
+                    </div>
+                    <div class="form-group">
+                        <input type="{{inputType}}" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Password" (keyup.enter)="focusableSubmit.click()"/>
+                        <input type="checkbox" id="checkbox" [(ngModel)]="passwordCheckbox" (click)="hideShowPassword()" />
+                        <label for="checkbox" *ngIf="passwordCheckbox">Hide password</label>
+                        <label for="checkbox" *ngIf="!passwordCheckbox">Show password</label>  
+                    </div>
+                    <button #focusableSubmit type="button" (click)="validate()" class="btn btn-outline-success">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
